@@ -8,8 +8,11 @@
     "masala",
     "Nexon",
     "shaktiman",
+    "sqlalchemy",
+    "supersecretkey",
     "teeteracdacd",
     "userbrand",
-    "usermodel"
+    "usermodel",
+    "Werkzeug"
   ]
 }
