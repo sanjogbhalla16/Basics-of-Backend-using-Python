@@ -1,5 +1,8 @@
 # we need to take inputs from the user as a choice
 
+def load_data():
+    pass
+
 def list_all_videos(videos):
     pass
 
@@ -15,7 +18,7 @@ def delete_videos(videos):
 
 
 def main():
-    videos =[]
+    videos = load_date()
     while True:
         print('\n Youtube Manager | choose an option')
         print('1. List all youtube videos')
@@ -39,3 +42,6 @@ def main():
                 break
             case _:
                 print('Invalid Choice')
+            
+if __name__ == '__main__':
+    main()
