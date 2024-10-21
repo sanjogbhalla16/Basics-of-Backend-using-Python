@@ -2,7 +2,6 @@
 import json
 
 def load_data():
-    pass
     try:
         with open('youtube.txt','r') as file:
             return json.loads(file) #load that data into json and read the data
@@ -14,11 +13,16 @@ def save_data_helper(videos):
            return json.dump(videos,file)
 
 def list_all_videos(videos):
-    pass
+    for index, video in enumerate(videos,start=1):
+        print(f"{index}. ")
 
 def add_videos(videos):
-    pass
-
+    name = input("Enter video name: ")
+    time = input("Enter video time: ")
+    videos.append({'name':name , 'time':time})
+    save_data_helper(videos)
+    
+    
 def update_videos(videos):
     pass
 
@@ -35,23 +39,23 @@ def main():
         print('2. Add a youtube video')
         print('3. Update a youtube video details')
         print('4. Delete the video')
-        print('5. Exist the app')
-        
+        print('5. Exit the app')
+
         choice = input('Enter your choice ')
-        
-        match choice:
-            case '1':
-                list_all_videos(videos)
-            case '2':
-                add_videos(videos)
-            case '3':
-                update_videos(videos)
-            case '4':
-                delete_videos(videos)
-            case '5':
-                break
-            case _:
-                print('Invalid Choice')
+        print(videos)
+
+        if choice == '1':
+            list_all_videos(videos)
+        elif choice == '2':
+            add_videos(videos)
+        elif choice == '3':
+            update_videos(videos)
+        elif choice == '4':
+            delete_videos(videos)
+        elif choice == '5':
+            break
+        else:
+            print('Invalid Choice')
             
 if __name__ == '__main__':
     main()
