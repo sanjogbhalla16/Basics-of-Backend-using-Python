@@ -3,10 +3,15 @@ import json
 
 def load_data():
     pass
-    # try:
-    #     pass
-    # catch:
-    #     pass
+    try:
+        with open('youtube.txt','r') as file:
+            return json.loads(file) #load that data into json and read the data
+    except FileNotFoundError:
+        return []
+  
+def save_data_helper(videos):
+      with open('youtube.txt','w') as file:
+           return json.dump(videos,file)
 
 def list_all_videos(videos):
     pass
@@ -23,7 +28,7 @@ def delete_videos(videos):
 
 
 def main():
-    videos = load_date()
+    videos = load_data()
     while True:
         print('\n Youtube Manager | choose an option')
         print('1. List all youtube videos')
