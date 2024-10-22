@@ -13,7 +13,7 @@ cursor.execute('''
 ''')
 
 def list_all_videos():
-    conn.execute("SELECT * FROM  videos")
+    cursor.execute("SELECT * FROM  videos")
     rows = cursor.fetchall()
     if not rows:
         print("No videos found in the database.")
@@ -21,9 +21,10 @@ def list_all_videos():
         for row in rows:
             print(row)
 
-def add_videos(name,time):
-    cursor.execute("INSERT INTO videos (name,time) VALUES (?, ?)", (name,time))
-    conn.commit()
+# Function to add a new video
+def add_videos(name, time):
+    cursor.execute("INSERT INTO videos (name, time) VALUES (?, ?)", (name, time))
+    conn.commit()  # Commit the changes using conn
 
 
 def update_videos(video_id, new_name,new_time):
