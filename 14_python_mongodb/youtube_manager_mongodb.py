@@ -1,4 +1,5 @@
 from file1 import client
+from bson import ObjectId
 
 db = client["ytmanager"]
 video_collection = db["videos"]
@@ -15,12 +16,12 @@ def add_videos(name,time):
 
 def update_videos(video_id,new_name,new_time):
     video_collection.update_one(
-        {'_id':video_id},
+        {'_id':ObjectId(video_id)},
         {"$set": {"name":new_name, "time":new_time}}
     )
 
 def delete_videos(video_id):
-    video_collection.delete_one({"_id":video_id})
+    video_collection.delete_one({"_id":ObjectId(video_id)})
 
 
 def main():
