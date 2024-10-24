@@ -6,17 +6,21 @@ video_collection = db["videos"]
 print(video_collection)
 
 def list_all_videos():
-    pass
+    for video in video_collection.find():
+        print(f"Id:{video['_id']},Name:{video['name']},Time: {video['time']}")
 
 
 def add_videos(name,time):
-    pass
+    video_collection.insert_one({"name":name,"time":time})
 
-def update_videos(video_id,name,time):
-    pass
+def update_videos(video_id,new_name,new_time):
+    video_collection.update_one(
+        {'_id':video_id},
+        {"$set": {"name":new_name, "time":new_time}}
+    )
 
 def delete_videos(video_id):
-    pass
+    video_collection.delete_one({"_id":video_id})
 
 
 def main():
