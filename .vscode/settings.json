@@ -8,12 +8,15 @@
     "lazer",
     "masala",
     "Nexon",
+    "pymongo",
     "shaktiman",
     "sqlalchemy",
     "supersecretkey",
     "teeteracdacd",
     "userbrand",
     "usermodel",
-    "Werkzeug"
+    "Werkzeug",
+    "youtubepy",
+    "ytmanager"
   ]
 }
